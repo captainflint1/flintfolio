@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
   const navItems = [
-    { name: 'MyWorks', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-  ];
+  { name: 'MyWorks', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Projects', path: '/projects' },
+];
+
 
   return (
-    <nav className="flex justify-center mt-12 space-x-4">
+    <nav className="flex justify-center space-x-6 text-lg py-4">
       {navItems.map((item, index) => (
-        <Link 
-          key={index} 
-          to={item.path} 
-          className="text-gray-700 hover:text-black font-medium transition"
+        <Link
+          key={index}
+          to={item.path}
+          className="text-black hover:text-pink-500 font-semibold transition duration-300"
         >
           {item.name}
         </Link>

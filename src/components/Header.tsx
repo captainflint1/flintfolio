@@ -3,16 +3,24 @@ import Navigation from './Navigation';
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full max-w-5xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-20 text-center">
-    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black uppercase">
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-    FlintVerse
-  </span>
-</h1>
-      <p className="mt-4 text-xl md:text-2xl text-gray-600">
-        Elegant solutions for brands that matter
-      </p>
-      <Navigation />
+   <header className="relative w-full text-white border-b-4 border-pink-500 mb-10">
+      {/* Full image with no cropping */}
+      <img
+        src="/banner.png"
+        alt="FlintVerse Banner"
+        className="w-full h-auto object-contain"
+      />
+
+      {/* Overlay */}
+      
+
+      {/* Banner content */}
+     
+
+      {/* Navigation positioned at the bottom of the header */}
+      <div className="absolute bottom-0 w-full z-20 bg-white py-3 border-t border-gray-200">
+        <Navigation />
+      </div>
     </header>
   );
 };
