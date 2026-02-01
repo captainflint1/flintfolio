@@ -10,8 +10,12 @@ const PortfolioGrid: React.FC = () => {
     { image: "/4.jpg", alt: "Digital logo on purple background" },
     { image: "/121.jpg", alt: "Digital logo variation 1" },
     { image: "/231.jpg", alt: "Digital logo variation 2" },
-    { image: "/12.png", alt: "Creative graphic banner" },
+    // { image: "/12.png", alt: "Creative graphic banner" },
     { image: "/333.jpg", alt: "Digital logo variation 4" },
+    { image: "/Fund-Rasing.jpg", alt: "Digital logo variation 4" },
+    { image: "/4322.png", alt: "Digital logo variation 4" },
+    { image: "/1233.png", alt: "Digital logo variation 4" },
+    { image: "/3.jpg", alt: "Digital logo variation 4" },
   ];
 
  
