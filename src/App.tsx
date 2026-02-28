@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import About from './components/About';
 import Services from './components/Services';
-import Projects from './components/Projects';
-import Branding from './components/About';
+import Contact from './components/Projects';
 import PortfolioGrid from './components/PortfolioGrid';
 
 function App() {
@@ -12,12 +11,11 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<PortfolioGrid />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<About />} />
+        <Route path="/portfolio" element={<PortfolioGrid />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/branding" element={<Branding />} />
-        
+        <Route path="/projects" element={<Contact />} />
+        <Route path="/branding" element={<About />} />
       </Routes>
     </Router>
   );

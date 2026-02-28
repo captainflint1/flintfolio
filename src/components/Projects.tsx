@@ -1,119 +1,92 @@
 import React from 'react';
+import { FiPhone, FiMail, FiArrowUpRight } from 'react-icons/fi';
+import { FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
 
-interface Project {
-  image: string;
-  name: string;
-  description: string;
-  url: string;
-}
+const Contact: React.FC = () => {
+  const contactDetails = [
+    {
+      label: 'Call',
+      value: '0542177021',
+      href: 'tel:0542177021',
+      icon: <FiPhone size={24} />
+    },
+    {
+      label: 'WhatsApp',
+      value: '0542177021',
+      href: 'https://wa.me/233542177021',
+      icon: <FaWhatsapp size={24} />
+    },
+    {
+      label: 'LinkedIn',
+      value: 'mensah-samuel',
+      href: 'https://www.linkedin.com/in/mensah-samuel',
+      icon: <FaLinkedinIn size={24} />
+    },
+    {
+      label: 'Email',
+      value: 'samuelmensah5521@gmail.com',
+      href: 'mailto:samuelmensah5521@gmail.com',
+      icon: <FiMail size={24} />
+    }
+  ];
 
-interface Certificate {
-  image: string;
-  title: string;
-  issuer: string;
-}
-
-const projects: Project[] = [
-  {
-    image: '/zuzuwears.png',
-    name: 'Zuzu Wears',
-    description: 'A full-featured online store built with Bootstrap 5.0 and Node.js.',
-    url: 'https://zuzuwears.netlify.app/',
-  },
-  {
-    image: '/flintgold.png',
-    name: 'FlintGold',
-    description: 'A modern jewelery e-commerce platform with a sleek design and robust functionality.',
-    url: 'https://flintgold.netlify.app/',
-  },
-  {
-    image: '/real-estate.png',
-    name: 'Flint Real Estate',
-    description: 'A responsive real estate website showcasing properties with advanced search features.',
-    url: 'https://flintrealestate.godaddysites.com',
-  },
-];
-
-const certificates: Certificate[] = [
-  {
-    image: '/ceh.jpg',
-    title: 'Certified Ethical Hacker (CEH)',
-    issuer: 'EC-Council',
-  },
-  {
-    image: '/alx.jpg',
-    title: 'ALX Professional Foundations in Data Science',
-    issuer: 'ALX Africa',
-  },
-  {
-    image: '/udemy.jpeg',
-    title: 'Front End Web Development ',
-    issuer: 'Udemy',
-  },
-];
-
-const Project: React.FC = () => {
   return (
-    <div className="bg-white text-gray-800 py-16 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-midnight text-white selection:bg-champagne/30 font-sans flex items-center justify-center py-32 px-6">
+      {/* Background elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[#0A0A0B]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(229,213,179,0.03),transparent)]" />
+      </div>
 
-        {/* Projects Section */}
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-          Projects I've Worked On
-        </h1>
+      <div className="relative z-10 max-w-4xl w-full">
+        <div className="text-center mb-20 animate-fade-in">
+          <span className="inline-block px-5 py-2 border border-champagne/20 rounded-full text-[10px] font-mono tracking-[0.3em] uppercase mb-8 backdrop-blur-sm text-champagne/80">
+            ✦ Get In Touch
+          </span>
+          <h1 className="text-5xl md:text-8xl font-display font-medium tracking-tighter mb-8">
+            Let's <span className="text-champagne italic font-light">Connect.</span>
+          </h1>
+          <p className="text-white/40 max-w-xl mx-auto font-display font-light text-lg leading-relaxed">
+            I'm always open to discussing new projects, creative ideas or original security solutions.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {contactDetails.map((detail, index) => (
             <a
               key={index}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+              href={detail.href}
+              target={detail.label === 'LinkedIn' ? '_blank' : undefined}
+              rel={detail.label === 'LinkedIn' ? 'noopener noreferrer' : undefined}
+              className="group relative bg-midnight-lighter/40 border border-white/5 p-10 rounded-[2.5rem] flex items-center gap-8 hover:border-champagne/20 transition-all duration-700 hover:-translate-y-1 block"
             >
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h2 className="text-xl font-semibold text-blue-600 mb-2">
-                  {project.name}
-                </h2>
-                <p className="text-gray-700">{project.description}</p>
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-white/40 group-hover:bg-champagne group-hover:text-midnight transition-colors duration-500 shrink-0">
+                {detail.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] font-mono tracking-[0.3em] text-white/20 uppercase mb-1 group-hover:text-champagne/60 transition-colors">
+                  {detail.label}
+                </div>
+                <div className="text-lg md:text-xl font-display font-medium text-white/80 group-hover:text-white transition-colors truncate">
+                  {detail.value}
+                </div>
+              </div>
+              <div className="absolute top-8 right-8 text-white/10 group-hover:text-champagne/40 transition-colors">
+                <FiArrowUpRight size={20} />
               </div>
             </a>
           ))}
         </div>
 
-        {/* Certificates Section */}
-        <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500">
-          Certificates
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {certificates.map((cert, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
-            >
-              <img
-                src={cert.image}
-                alt={cert.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-blue-600 mb-1">
-                  {cert.title}
-                </h3>
-                <p className="text-gray-700 text-sm">{cert.issuer}</p>
-              </div>
-            </div>
-          ))}
+        <div className="mt-32 text-center">
+          <p className="text-[10px] font-mono tracking-[0.4em] text-white/10 uppercase">
+            EST. 2025 — FLINTFOLIO
+          </p>
         </div>
-
       </div>
     </div>
   );
 };
 
-export default Project;
+export default Contact;
+

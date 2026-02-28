@@ -14,35 +14,30 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white shadow-lg py-2' 
-          : 'bg-gradient-to-r from-purple-900 via-purple-800 to-pink-800 py-4'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled
+        ? 'bg-midnight/80 backdrop-blur-md border-b border-white/5 py-3'
+        : 'bg-transparent py-6'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo with modern design */}
-        <div className="flex items-center space-x-3 group">
+        {/* Logo - Elegant & Minimal */}
+        <div className="flex items-center space-x-4 group cursor-pointer">
           <div className="relative">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shadow-xl">
-              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                FV
+            <div className="w-10 h-10 bg-midnight-lighter border border-white/10 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-all duration-500 shadow-2xl">
+              <span className="text-xl font-display font-bold text-champagne">
+                F
               </span>
             </div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl blur opacity-0 group-hover:opacity-70 transition duration-300 -z-10"></div>
+            <div className="absolute -inset-2 bg-champagne/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000 -z-10"></div>
           </div>
-          
+
           <div className="flex flex-col">
-            <span className={`font-bold text-xl tracking-tight ${
-              isScrolled ? 'text-gray-800' : 'text-white'
-            }`}>
-              Flint<span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-yellow-400">Verse</span>
+            <span className="font-display font-medium text-lg tracking-tight text-white">
+              Flint<span className="text-champagne font-light italic">folio</span>
             </span>
-            <span className={`text-xs tracking-wider ${
-              isScrolled ? 'text-gray-500' : 'text-white/70'
-            }`}>
-              Creative Studio
+            <span className="text-[9px] font-mono tracking-[0.3em] text-white/30 uppercase">
+              Security & Design
             </span>
           </div>
         </div>
@@ -52,33 +47,23 @@ const Header: React.FC = () => {
           <Navigation />
         </div>
 
-        {/* Right side actions - Simplified */}
-        <div className="flex items-center space-x-4">
-          {/* Mobile menu button */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center"
-          >
-            <span className={`block w-6 h-0.5 transition-all duration-300 ${
-              isScrolled ? 'bg-gray-800' : 'bg-white'
-            } ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`block w-6 h-0.5 transition-all duration-300 mt-1.5 ${
-              isScrolled ? 'bg-gray-800' : 'bg-white'
-            } ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 transition-all duration-300 mt-1.5 ${
-              isScrolled ? 'bg-gray-800' : 'bg-white'
-            } ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-          </button>
-        </div>
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center text-white"
+        >
+          <span className={`block w-5 h-px bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-0.5' : ''}`}></span>
+          <span className={`block w-5 h-px bg-current transition-all duration-300 mt-1.5 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-px bg-current transition-all duration-300 mt-1.5 ${isMenuOpen ? '-rotate-45 -translate-y-0.5' : ''}`}></span>
+        </button>
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute left-0 right-0 bg-white shadow-2xl transition-all duration-500 overflow-hidden ${
-          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+      <div
+        className={`md:hidden absolute left-0 right-0 bg-midnight/95 backdrop-blur-2xl border-b border-white/5 transition-all duration-500 overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
-        <div className="px-6 py-6">
+        <div className="px-8 py-10">
           <Navigation mobile />
         </div>
       </div>
